@@ -1,3 +1,21 @@
+# Civic Fork of https://github.com/ariabov/docker-cloudwatch-monitoring
+
+Changes:
+- We've added a crontab that runs the monitoring scripts every minute.
+- Solve a problem with the latest docker Ubuntu by installing cron and syslog-ng-core
+- Remove awscreds as AWS credentials are provided by EC2 (The server must have an IAM profile)
+
+## How to use
+
+### Building:
+docker build . -t civicteam/docker-cloudwatch-monitoring
+
+### Running (on the server you wish to monitor)
+docker run -d civicteam/docker-cloudwatch-monitoring
+
+That's it!
+
+
 # Docker Cloudwatch Monitoring
 
 This Docker container contains Amazon EC2 scripts to simplify reporting additional EC2 instance information to Cloudwatch. These Perl scripts comprise a fully functional examples that reports memory, swap, and disk space utilization metrics for a Linux instance. You can learn more about the scripts [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/mon-scripts.html).
