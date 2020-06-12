@@ -4,6 +4,13 @@ Changes:
 - We've added a crontab that runs the monitoring scripts every minute.
 - Solve a problem with the latest docker Ubuntu by installing cron and syslog-ng-core
 - Remove awscreds as AWS credentials are provided by EC2 (The server must have an IAM profile)
+- Added the ability to configure the cron job by adding the MON_PARAMS environment variable. For example, to monitor
+more than one volume, just add the configuration to MON_PARAMS e.g.
+
+    docker run -e MON_PARAMS="MON_PARAMS="--disk-path=/mypath/myfile --disk-path=/mypath2/myfile2"
+
+The paths need to be paths to files on the device, not directories.
+
 
 ## How to use
 

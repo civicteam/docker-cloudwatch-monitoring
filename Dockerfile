@@ -20,6 +20,7 @@ WORKDIR aws-scripts-mon
 # Setup cron
 
 ADD crontab /etc/crontab
+ADD cron-env.sh ./
 RUN crontab /etc/crontab
 
 # Log file for debugging
@@ -27,4 +28,4 @@ RUN crontab /etc/crontab
 RUN touch /var/log/cron.log
 RUN chmod 0644 /var/log/cron.log
 
-ENTRYPOINT cron -f
+ENTRYPOINT ./cron-env.sh

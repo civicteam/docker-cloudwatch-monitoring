@@ -1,1 +1,1 @@
-*/1 * * * * /aws-scripts-mon/mon-put-instance-data.pl --mem-util --mem-used --mem-avail --disk-path=/etc/hosts --disk-space-util --disk-space-avail --disk-space-used --verbose --from-cron  > /var/log/cron.log 2>&1
+*/1 * * * * /aws-scripts-mon/mon-put-instance-data.pl --mem-util --mem-used --mem-avail --disk-path=/etc/hosts ${MON_PARAMS} --disk-space-util --disk-space-avail --disk-space-used --verbose --from-cron  > /var/log/cron.log 2>&1
